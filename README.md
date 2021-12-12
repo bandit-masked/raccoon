@@ -9,7 +9,7 @@ Raccoon Music Player will list and play all MP3, WAV and FLAC music files that a
 Raccoon Music Player has been developed and tested on Windows 10. The libraries that are used for this app support Windows 10, Linux and MacOS. Therefore, the app should support all three platforms, but Linux and MacOS have not been tested.
 
 # License
-The software is available under the MIT license. Licenses of assets, fonts and music are a listed in the appropriate project folders.
+Licenses of assets, fonts and music are a listed in the appropriate project folders. The software is available under the MIT license. 
 
 # Special thanks
 A special thank you goes out to the following rockstars.
