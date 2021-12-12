@@ -1,5 +1,7 @@
-All software is published under the MIT license.
 The license of all music, fonts and assets is published in their respective folders.
+
+All software is published under the MIT license.
+
 
 
 The MIT License (MIT)
