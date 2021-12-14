@@ -1,4 +1,4 @@
-![Raccoon Music Player Logo](https://github.com/bandit-masked/media/blob/main/raccoon_logo.png)
+![Raccoon Music Player Logo](https://github.com/bandit-masked/media/blob/main/raccoon.png)
 
 # About
 
