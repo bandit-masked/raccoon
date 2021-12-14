@@ -1,4 +1,6 @@
-The license of all music, fonts and assets is published in their respective folders.
+The raccoon character is available under a Creative Commons Attribution (cc-by) license.
+
+Licenses of assets, fonts and music are a listed in the appropriate project folders. The software is available under the MIT license.
 
 All software is published under the MIT license.
 
