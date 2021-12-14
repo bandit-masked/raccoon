@@ -1,4 +1,6 @@
-# Raccoon Music Player
+![Raccoon Music Player Logo](https://github.com/bandit-masked/media/blob/main/raccoon_logo.png)
+
+# About
 
 Raccoon Music Player is a fun little music player. Made as a proof-of-concept Python app with the awesome [Dear PyGui](https://github.com/hoffstadt/DearPyGui/) and [PyMiniAudio](https://github.com/irmen/pyminiaudio) libraries, the project was created for the purpose of learning Python and gaining familiarity with the aforementioned libraries.
 
@@ -8,8 +10,8 @@ Raccoon Music Player will list and play all MP3, WAV and FLAC music files that a
 # Supported Operating Systems
 Raccoon Music Player has been developed and tested on Windows 10. The libraries that are used for this app support Windows 10, Linux and MacOS. Therefore, the app should support all three platforms, but Linux and MacOS have not been tested.
 
-# License
-Licenses of assets, fonts and music are a listed in the appropriate project folders. The software is available under the MIT license. 
+# Licenses
+The [raccoon character](https://null-painter-error.itch.io/cute-raccoon-2d-game-sprite-and-animations) is available under a Creative Commons Attribution (cc-by) license. Licenses of assets, fonts and music are a listed in the appropriate project folders. The software is available under the MIT license. 
 
 # Special thanks
 A special thank you goes out to the following rockstars.
