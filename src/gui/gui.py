@@ -233,8 +233,8 @@ def drag_viewport():
         viewport_current_pos = dpg.get_viewport_pos()
         new_x_position = viewport_current_pos[0] + drag_deltas[0]
         new_y_position = viewport_current_pos[1] + drag_deltas[1]
-        if new_x_position < 0:  # prevent the viewport to go off-screen
-            new_x_position = 0
+        # if new_x_position < 0:  # prevent the viewport to go off-screen
+        #     new_x_position = 0
         if new_y_position < 0:
             new_y_position = 0
         dpg.set_viewport_pos([new_x_position, new_y_position])
