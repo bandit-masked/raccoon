@@ -1,6 +1,7 @@
-The raccoon character is available under a Creative Commons Attribution (cc-by) license. See https://null-painter-error.itch.io/cute-raccoon-2d-game-sprite-and-animations for details.
+The raccoon character is available under a Creative Commons Attribution (cc-by) license. 
+See https://null-painter-error.itch.io/cute-raccoon-2d-game-sprite-and-animations for details.
 
-Licenses of assets, fonts and music are a listed in the appropriate project folders. T
+Licenses of assets, fonts and music are a listed in the appropriate project folders. 
 
 All software is published under the MIT license.
 
