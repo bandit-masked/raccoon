@@ -52,7 +52,7 @@ def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, 
                 raccoon.dance()
 
         # stay idle if music is not playing
-        if (player_state == 'pause' or player_state == 'stop') and move_raccoons:
+        if player_state in ['pause', 'stop'] and move_raccoons:
             for raccoon in raccoons:
                 raccoon.idle()
 
