@@ -51,14 +51,9 @@ class Player:
 
         # PAUSE
         if self.player_state == 'pause':
-            if self.same_song_selected:  # no song selected in listbox
-                self.go_stop = False
-                self.go_load = False
-                self.go_play = True
-            else:  # song selected in listbox
-                self.go_stop = True
-                self.go_load = True
-                self.go_play = True
+            self.go_stop = False
+            self.go_load = False
+            self.go_play = True
 
         # STOP
         if self.player_state == 'stop':
@@ -68,15 +63,9 @@ class Player:
 
         # PLAY
         if self.player_state == 'play':
-            self.go_play = False
-            if self.same_song_selected:  # no song selected in listbox
-                self.go_stop = False
-                self.go_load = False
-                self.go_play = False
-            else:  # song selected in listbox
-                self.go_stop = True
-                self.go_load = True
-                self.go_play = True
+            self.go_stop = True
+            self.go_load = True
+            self.go_play = True
 
         if self.go_stop:
             self.playback_device.close()  # close = pause music and close device
@@ -87,6 +76,7 @@ class Player:
                 self.filestream = miniaudio.stream_file(self.listbox_song_filename)
                 self.callbacks_stream = miniaudio.stream_with_callbacks(self.filestream, self.stream_progress_callback,
                                                                         self.stream_end_callback)
+                next(self.callbacks_stream)  # start the generator
             except:
                 self.player_state = 'stop'
                 self.song_playing = ''
@@ -97,10 +87,9 @@ class Player:
             self.go_load = False
 
         if self.go_play:
-            next(self.callbacks_stream)  # start the generator
-            self.playback_device = miniaudio.PlaybackDevice()
+            if self.player_state == 'stop' or self.player_state == 'play':
+                self.playback_device = miniaudio.PlaybackDevice()
             self.playback_device.start(self.callbacks_stream)
-
             self.info = miniaudio.get_file_info(self.listbox_song_filename)
             self.duration = int(round(self.info.duration, 0))
 
