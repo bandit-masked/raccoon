@@ -107,32 +107,32 @@ class TimerInterval:
         return self.state
 
 
-def update_viewport_height(player_state, min, max, step_size):
+def update_viewport_height(player_state, min_height, max_height, step_size):
     viewport_height = dpg.get_viewport_height()
     new_viewport_height = dpg.get_viewport_height()
 
     # show animation window when playing music
-    if player_state == 'play' and viewport_height < max:
+    if player_state == 'play' and viewport_height < max_height:
         new_viewport_height = viewport_height + step_size
         dpg.set_viewport_height(new_viewport_height)
-    if player_state == 'stop' and viewport_height > min:
+    if player_state == 'stop' and viewport_height > min_height:
         new_viewport_height = viewport_height - step_size
         dpg.set_viewport_height(new_viewport_height)
 
     return new_viewport_height
 
 
-def update_logo_fader(player_state, fader, stepsize):
+def update_logo_fader(player_state, fader, step_size):
     level = fader.level
 
     if player_state == 'play' and level < 150:
         # make the logo darker when playing music
-        fader.level += stepsize
+        fader.level += step_size
         dpg.configure_item('logo_text_filter', fill=(0, 0, 0, fader.level))
 
     if player_state == 'stop' and level > 0:
         # make the logo brighter when 'stop' is pressed
-        fader.level -= stepsize
+        fader.level -= step_size
         dpg.configure_item('logo_text_filter', fill=(0, 0, 0, fader.level))
 
 
@@ -195,27 +195,25 @@ def create_raccoons():
 
 def create_fire():
     flames = graphics.load_textures('assets/flame', 'flame', 'png', 8)
-    fire = graphics.Animation(280, 540, 8, flames, 100, 100, 'layer_07')
-    return fire
+    return graphics.Animation(280, 540, 8, flames, 100, 100, 'layer_07')
 
 
 def create_smoke(x_pos):
     smokes = graphics.load_textures('assets/smoke', 'smoke', 'png', 10)
-    smoke = graphics.Animation(x_pos, 610, 10, smokes, 30, 30, 'layer_07')
-    return smoke
+    return graphics.Animation(x_pos, 610, 10, smokes, 30, 30, 'layer_07')
 
 
 def create_particle():
     particle_textures = graphics.load_textures('assets/particle', 'dust', 'png', 13)
     particles = []
     num_particles = random.randint(200, 300)
-    for num in range(0, num_particles):
-        x_pos = 1000  # particles are created out of range
+    x_pos = 1000  # particles are created out of range
+    layer = 'layer_06'
+    for _ in range(num_particles):
         y_pos = 445 + random.randint(0, 50) + x_pos / 10
         horizontal_speed = random.randint(6, 9) / 10
         starting_frame = random.randint(0, 12)
         size = random.randint(1, 7)
-        layer = 'layer_06'
         particles.append(
             graphics.Particle(x_pos, y_pos, horizontal_speed, starting_frame, 13, 40, particle_textures, size, size,
                               layer))
@@ -233,14 +231,12 @@ def drag_viewport():
         viewport_current_pos = dpg.get_viewport_pos()
         new_x_position = viewport_current_pos[0] + drag_deltas[0]
         new_y_position = viewport_current_pos[1] + drag_deltas[1]
-        # if new_x_position < 0:  # prevent the viewport to go off-screen
-        #     new_x_position = 0
-        if new_y_position < 0:
-            new_y_position = 0
+        new_y_position = max(new_y_position, 0) # prevent the viewport to go off-screen
         dpg.set_viewport_pos([new_x_position, new_y_position])
 
 
 def gui(mp, music_folder, music_files, app_state, fill):
+    # sourcery skip: extract-method
     dpg.create_context()
     style.load_themes()
     style.load_fonts()
@@ -262,12 +258,10 @@ def gui(mp, music_folder, music_files, app_state, fill):
             mp.song_change('sender_dummy', music_files[0], music_folder)
             dpg.add_listbox(tag='listbox_files', items=music_files,
                             callback=mp.song_change, user_data=music_folder, width=565, num_items=6)
-            dpg.bind_item_theme('listbox_files', 'listbox_theme')
         else:
             dpg.add_listbox(tag='listbox_files', items=['No music files'],
                             callback=mp.song_change, user_data=music_folder, width=565, num_items=6)
-            dpg.bind_item_theme('listbox_files', 'listbox_theme')
-
+        dpg.bind_item_theme('listbox_files', 'listbox_theme')
         dpg.add_spacer(height=30)
 
         # buttons
@@ -291,10 +285,10 @@ def gui(mp, music_folder, music_files, app_state, fill):
         dpg.bind_item_theme('song_name', 'song_playing_theme')
         dpg.bind_item_font(item='song_name', font='font2')
 
-    vp = dpg.create_viewport(title='Music player', height=500, width=622, x_pos=100, y_pos=100, decorated=False)
+    dpg.create_viewport(title='Music player', height=500, width=622, x_pos=100, y_pos=100, decorated=False)
     dpg.set_viewport_min_height(0)
     dpg.set_viewport_min_width(0)
-    dpg.setup_dearpygui(viewport=vp)
+    dpg.setup_dearpygui()
     dpg.show_viewport()
 
     return main_window, logo_window
