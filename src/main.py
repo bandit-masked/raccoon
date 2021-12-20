@@ -1,7 +1,7 @@
 import dearpygui.dearpygui as dpg
 import musicplayer.musicplayer as musicplayer
 import gui.gui as gui
-import tools.files as files
+import gui.files as files
 import musicplayer.controller as controller
 
 
@@ -23,7 +23,6 @@ def setup():
 
 
 def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particles):
-    # setting the timer for all moving objects
     raccoon_timer = gui.Timer(0.05)
     fire_timer = gui.Timer(0.085)
     smoke_timer1 = gui.TimerInterval(6.5, 0.11, 10)  # run 10 frames at 0.10 seconds interval after 8 seconds,
