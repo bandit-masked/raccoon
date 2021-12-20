@@ -75,10 +75,7 @@ class Raccoon:
                                           parent=self.layer)
 
     def flip_face_direction(self):
-        if self.face_direction == 'left':
-            self.face_direction = 'right'
-        else:
-            self.face_direction = 'left'
+        self.face_direction = 'right' if self.face_direction == 'left' else 'left'
 
     def dance(self):
         if self.frame < self.num_frames - 1:
@@ -86,12 +83,8 @@ class Raccoon:
         else:
             self.frame = 0
         self.x += self.direction
-        if self.x > self.x_start + self.right_boundary + self.temp_boundary:
-            self.direction = -self.direction
-            self.temp_boundary = random.randint(0, self.boundary_variation)
-            if self.flip_face_setting:
-                self.flip_face_direction()
-        elif self.x < self.x_start - self.left_boundary - self.temp_boundary:
+        if (self.x > self.x_start + self.right_boundary + self.temp_boundary) or \
+                (self.x < self.x_start - self.left_boundary - self.temp_boundary):
             self.direction = -self.direction
             self.temp_boundary = random.randint(0, self.boundary_variation)
             if self.flip_face_setting:
@@ -123,7 +116,6 @@ class Animation:
         self.y = y
         self.frame = 0
         self.num_frames = num_frames
-        # self.window = window
         self.textures = textures
         self.image_width = image_width
         self.image_height = image_height
@@ -154,7 +146,6 @@ class Particle:
         self.frame = starting_frame
         self.num_frames = num_frames
         self.interval = interval
-        # self.window = window
         self.textures = textures
         self.image_width = image_width
         self.image_height = image_height
@@ -171,7 +162,7 @@ class Particle:
 
     def update(self):
         self.interval += 1  # interval determines how many update calls it takes to update a frame
-        if self.interval / 60 == 1:
+        if self.interval == 60:
             self.interval = 0
             if self.frame < self.num_frames - 1:
                 self.frame += 1
@@ -197,7 +188,7 @@ def load_logo():
                   parent="viewport_front", color=(95, 59, 35))
     dpg.bind_item_font(item='logo_musicplayer', font='font4')
 
-    make_image(f'assets/raccoon/logo_raccoon_circle.png', 82, 35, 'viewport_front')
+    make_image('assets/raccoon/logo_raccoon_circle.png', 82, 35, 'viewport_front')
     dpg.draw_rectangle(tag='logo_text_filter', parent="viewport_front", color=(0, 0, 0, 0), fill=(0, 0, 0, 0),
                        pmin=(50, 30), pmax=(510, 150))
     dpg.draw_rectangle(tag='leaves_button_filter', parent="viewport_front", color=(0, 0, 0, 0), fill=(222, 0, 0, 0),
@@ -207,7 +198,7 @@ def load_logo():
 def load_textures(filepath, asset_name, image_type, number_of_assets):
     textures = []
     with dpg.texture_registry():
-        for frame in range(0, number_of_assets):
+        for frame in range(number_of_assets):
             file = filepath + '/' + asset_name + '_' + str(frame) + '.' + image_type
             image_width, image_height, image_channels, image_buffer = dpg.load_image(file)
             texture = dpg.add_static_texture(image_width, image_height, image_buffer)
