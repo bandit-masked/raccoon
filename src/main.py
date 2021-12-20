@@ -123,7 +123,7 @@ def main():
     raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particle = setup()
     run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particle)
 
-    # destroy_context should not be placed the render loop to avoid an error
+    # destroy_context should not be placed inside the render loop to avoid an error
     dpg.destroy_context()
 
 
