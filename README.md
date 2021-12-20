@@ -2,7 +2,7 @@
 
 # About
 
-Raccoon Music Player is a little music player with a little animation. Made as a proof-of-concept Python app with the awesome [Dear PyGui](https://github.com/hoffstadt/DearPyGui/) and [PyMiniAudio](https://github.com/irmen/pyminiaudio) libraries, the project was created for the purpose of learning Python and gaining familiarity with the aforementioned libraries. As the focus of this project was on learning and creating something fun, the music player is minimalistic, yet polished by design.
+Raccoon Music Player is a mini music player with a bit of animation. Made as a proof-of-concept Python app with the awesome [Dear PyGui](https://github.com/hoffstadt/DearPyGui/) and [PyMiniAudio](https://github.com/irmen/pyminiaudio) libraries, the project was created for the purpose of learning Python and gaining familiarity with the aforementioned libraries. As the focus of this project was on learning and creating something fun, the music player is minimalistic, yet polished by design.
 
 # Usage
 Raccoon Music Player will list and play all MP3, WAV and FLAC music files that are stored in the music folder of the project. Copy your music files to the music folder, start the app and play your favourite tunes. 💕🎶
