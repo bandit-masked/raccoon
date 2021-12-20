@@ -11,7 +11,6 @@ def load_themes():
 
     with dpg.theme(tag='listbox_theme'):
         with dpg.theme_component():
-            # For 1.0, the highlighted item in a listbox has been remapped to mvThemeCol_FrameBgActive from mvThemeCol_Header
             dpg.add_theme_color(dpg.mvThemeCol_FrameBgActive, colour_orange,
                                 category=dpg.mvThemeCat_Core)  # listbox item: selected
             dpg.add_theme_color(dpg.mvThemeCol_HeaderHovered, colour_red,
