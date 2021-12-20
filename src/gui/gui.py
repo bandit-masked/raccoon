@@ -99,7 +99,6 @@ class TimerInterval:
 
         if self.current_frame > self.num_frames:
             self.animation_loop = False
-            self.last_total_time_interval = 0
             self.current_frame = 0
             self.state = False
             self.interval_time = random.randrange(4, 11)
