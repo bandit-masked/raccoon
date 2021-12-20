@@ -49,20 +49,12 @@ class Player:
             self.go_load = True
             self.go_play = True
 
-        # PAUSE
-        if self.player_state == 'pause':
+        elif self.player_state == 'pause':
             self.go_stop = False
             self.go_load = False
             self.go_play = True
 
-        # STOP
-        if self.player_state == 'stop':
-            self.go_stop = True
-            self.go_load = True
-            self.go_play = True
-
-        # PLAY
-        if self.player_state == 'play':
+        elif self.player_state in ['stop', 'play']:
             self.go_stop = True
             self.go_load = True
             self.go_play = True
@@ -87,7 +79,7 @@ class Player:
             self.go_load = False
 
         if self.go_play:
-            if self.player_state == 'stop' or self.player_state == 'play':
+            if self.player_state in ['stop', 'play']:
                 self.playback_device = miniaudio.PlaybackDevice()
             self.playback_device.start(self.callbacks_stream)
             self.info = miniaudio.get_file_info(self.listbox_song_filename)
@@ -108,7 +100,7 @@ class Player:
         return self.player_state, self.song_playing, self.duration, False
 
     def stop(self):
-        if self.player_state != 'new' and self.player_state != 'stop':
+        if self.player_state not in ['new', 'stop']:
             self.playback_device.close()  # close = pause music and close device
             self.player_state = 'stop'
         return self.player_state, self.song_playing, self.duration, False
