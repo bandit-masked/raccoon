@@ -61,7 +61,6 @@ class Raccoon:
         self.layer = layer
         self.frame = start_frame
         self.num_frames = 14
-        # self.window = window
         self.textures = textures
         self.image_width = image_width
         self.image_height = image_height
