@@ -2,11 +2,13 @@ from os import listdir
 
 
 def get_music_files(folder):
-    file_names = []
-    for file in listdir(folder):
-        if file.endswith('.mp3') or file.endswith('.flac') or file.endswith('.wav'):
-            file_names.append(file)
-    return file_names
+    return [
+        file
+        for file in listdir(folder)
+        if file.endswith('.mp3')
+        or file.endswith('.flac')
+        or file.endswith('.wav')
+    ]
 
 
 def get_first_song(music_folder):
@@ -14,8 +16,5 @@ def get_first_song(music_folder):
         music_files = get_music_files(music_folder)
     except:  # in case music_folder does not exist
         music_files = []
-    if music_files == []:
-        first_song = 'No music files'
-    else:
-        first_song = music_files[0]
+    first_song = 'No music files' if not music_files else music_files[0]
     return first_song, music_files
