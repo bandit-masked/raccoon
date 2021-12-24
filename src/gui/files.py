@@ -1,14 +1,11 @@
-from os import listdir
+from pathlib import Path
 
 
-def get_music_files(folder):
-    return [
-        file
-        for file in listdir(folder)
-        if file.endswith('.mp3')
-        or file.endswith('.flac')
-        or file.endswith('.wav')
-    ]
+def get_music_files(folder_str):
+    folder = Path(folder_str)
+    items = folder.iterdir()  # folders and files
+    extensions = ['.FLAC', '.MP3', '.WAV']
+    return [item.name for item in items if item.is_file() and item.suffix.upper() in extensions]
 
 
 def get_first_song(music_folder):
