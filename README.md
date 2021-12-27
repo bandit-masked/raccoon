@@ -8,7 +8,7 @@ Raccoon Music Player is a pocket-sized music player that shows dancing raccoons 
 Raccoon Music Player will list and play all MP3, WAV and FLAC music files that are stored in the music folder of the project. Copy your music files to the music folder, start the app and play your favourite tunes. 💕🎶
 
 # Supported Operating Systems
-Raccoon Music Player has been developed and tested on Windows 10. The libraries that are used for this app support Windows 10, Linux and MacOS. Therefore, the app should support all three platforms, but Linux and MacOS have not been tested. Dear PyGui currently does not support the Mac M1 chips, but it is expected to support these as of Q1 2022.
+Raccoon Music Player has been developed and tested on Windows 10. The libraries that are used for this app support Windows 10, Linux and MacOS. Therefore, the app should support all three platforms, but Linux and MacOS have not been tested. Dear PyGui currently does not support the Mac M1 platform, but it is expected that this will be supported as of Q1 2022.
 
 # Licenses
 The [raccoon](https://null-painter-error.itch.io/cute-raccoon-2d-game-sprite-and-animations) character is available under a Creative Commons Attribution (cc-by) license. Licenses of assets, fonts and music are a listed in the appropriate project folders. The software is available under the MIT license. 
