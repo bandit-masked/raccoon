@@ -2,7 +2,7 @@
 
 # About
 
-Raccoon Music Player (RMP) is a pocket-sized music player that shows raccoons dancing around a campfire while songs are playing. The app is a proof-of-concept, made with Python using on the excellent [Dear PyGui](https://github.com/hoffstadt/DearPyGui/) and [PyMiniAudio](https://github.com/irmen/pyminiaudio) libraries. The project was created for the purpose of learning Python and gaining familiarity with said libraries. As the focus was on learning and creating something fun while actually finishing the project, the feature set is deliberately restricted.
+Raccoon Music Player is a pocket-sized music player that shows raccoons dancing around a campfire while songs are playing. The app is a proof-of-concept, made with Python using on the excellent [Dear PyGui](https://github.com/hoffstadt/DearPyGui/) and [PyMiniAudio](https://github.com/irmen/pyminiaudio) libraries. The project was created for the purpose of learning Python and gaining familiarity with said libraries. As the focus was on learning and creating something fun while actually finishing the project, the feature set is deliberately restricted.
 
 # Usage
 Raccoon Music Player will list and play all MP3, WAV and FLAC music files that are stored in the music folder of the project. Copy your music files to the music folder, start the app and play your favourite tunes. 💕🎶
