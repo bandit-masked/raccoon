@@ -34,41 +34,36 @@ def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, 
     while dpg.is_dearpygui_running():
 
         # update the timer clocks
-        move_raccoons = raccoon_timer.update()
-        move_fire = fire_timer.update()
-        move_smoke1 = smoke_timer1.update()
-        move_smoke2 = smoke_timer2.update()
-        move_particle = particles_timer.update()
-        reset_particles = reset_particles_timer.update()
-
         player_state = controller.mp_state(mp)
 
         # move all animated objects
 
-        # dance if music is playing
-        if player_state == 'play' and move_raccoons:
-            for raccoon in raccoons:
-                raccoon.dance()
+        if raccoon_timer.update():
 
-        # stay idle if music is not playing
-        if player_state in ['pause', 'stop'] and move_raccoons:
-            for raccoon in raccoons:
-                raccoon.idle()
+            # dance if music is playing
+            if player_state == 'play':
+                for raccoon in raccoons:
+                    raccoon.dance()
 
-        if move_fire:
+            # stay idle if music is not playing
+            elif player_state in ['pause', 'stop']:
+                for raccoon in raccoons:
+                    raccoon.idle()
+
+        if fire_timer.update():
             fire.update()
 
-        if move_smoke1:
+        if smoke_timer1.update():
             smoke1.update()
 
-        if move_smoke2:
+        if smoke_timer2.update():
             smoke2.update()
 
-        if move_particle:
+        if particles_timer.update():
             for particle in particles:
                 particle.update()
 
-        if reset_particles:
+        if reset_particles_timer.update():
             for particle in particles:
                 particle.reset()
 
