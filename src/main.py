@@ -33,7 +33,7 @@ def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, 
 
     while dpg.is_dearpygui_running():
 
-        # update the timer clocks
+        # get music player state
         player_state = controller.mp_state(mp)
 
         # move all animated objects
