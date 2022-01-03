@@ -19,4 +19,4 @@ A special thank you goes out to the following rockstars.
 * [Jonathan Hoffstadt](https://github.com/hoffstadt) and [Preston Cothren](https://github.com/Pcothren) for creating [Dear PyGui](https://github.com/hoffstadt/DearPyGui/) and providing critical coding insights.
 * [Irmen de Jong](https://github.com/irmen) for creating [PyMiniAudio](https://github.com/irmen/pyminiaudio) and entertaining my suggestions.
 * [null painter](https://null-painter-error.itch.io/) for making the [raccoon character](https://null-painter-error.itch.io/cute-raccoon-2d-game-sprite-and-animations) available under a Creative Commons Attribution (cc-by) license.
-* [Illu](https://github.com/Mstpyt) and [Anthony](https://github.com/Atlamillias) for code discussions and being great fellow moderators on the [Dear PyGui Discord server](https://discord.gg/tyE7Gu4).
+* [Illu](https://github.com/Mstpyt) and [Anthony](https://github.com/Atlamillias) for code discussions.
