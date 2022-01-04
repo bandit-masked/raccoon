@@ -135,9 +135,9 @@ def update_logo_fader(player_state, fader, step_size):
         dpg.configure_item('logo_text_filter', fill=(0, 0, 0, fader.level))
 
 
-def update_leaves_button_fader(fader, stepsize):
+def update_leaves_button_fader(fader, step_size):
     if fader.level < 255:
-        fader.level += stepsize
+        fader.level += step_size
         dpg.configure_item('leaves_button_filter', fill=(0, 0, 0, fader.level))
 
 
@@ -224,13 +224,13 @@ def app_state_close(sender, app_data, app_state):
     app_state.closing = True
 
 
-def drag_viewport():
-    if dpg.get_mouse_pos(local=False)[1] < 140:  # only drag the viewport when the dragging the logo
-        drag_deltas = dpg.get_mouse_drag_delta()
+def drag_viewport(sender, app_data, user_data):
+    if dpg.get_mouse_pos(local=False)[1] < 140:  # only drag the viewport when dragging the logo
+        drag_deltas = app_data
         viewport_current_pos = dpg.get_viewport_pos()
-        new_x_position = viewport_current_pos[0] + drag_deltas[0]
-        new_y_position = viewport_current_pos[1] + drag_deltas[1]
-        new_y_position = max(new_y_position, 0) # prevent the viewport to go off-screen
+        new_x_position = viewport_current_pos[0] + drag_deltas[1]
+        new_y_position = viewport_current_pos[1] + drag_deltas[2]
+        new_y_position = max(new_y_position, 0) # prevent the viewport to go off the top of the screen
         dpg.set_viewport_pos([new_x_position, new_y_position])
 
 
@@ -247,7 +247,8 @@ def gui(mp, music_folder, music_files, app_state, fill):
                              callback=app_state_close, frame_padding=0)  # user_data=user_data_list,
 
         with dpg.handler_registry():
-            dpg.add_mouse_drag_handler(callback=drag_viewport)
+            dpg.add_mouse_drag_handler(button=0, threshold=0.0, callback=drag_viewport)
+            # dpg.add_mouse_drag_handler(callback=drag_viewport)
 
     with dpg.window(label="main window", **config.main_window) as main_window:
         dpg.bind_item_theme(main_window, 'app_theme')
