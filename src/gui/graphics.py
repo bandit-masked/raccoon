@@ -179,20 +179,19 @@ class Particle:
 
 
 def load_logo():
-    dpg.add_viewport_drawlist(front=True, tag='viewport_front')
-    dpg.draw_text(pos=(213, 4), tag='logo_raccoon', text='Raccoon', size=140, parent="viewport_front",
-                  color=(217, 131, 46))
-    dpg.bind_item_font(item='logo_raccoon', font='font3')
+    with dpg.viewport_drawlist(front=True, tag='viewport_front'):
+        dpg.draw_text(pos=(213, 4), tag='logo_raccoon', text='Raccoon', size=140, color=(217, 131, 46))
+        dpg.bind_item_font(item='logo_raccoon', font='font3')
 
-    dpg.draw_text(pos=(275, 110), tag='logo_musicplayer', text='M U S I C   P L A Y E R', size=21,
-                  parent="viewport_front", color=(95, 59, 35))
-    dpg.bind_item_font(item='logo_musicplayer', font='font4')
+        dpg.draw_text(pos=(275, 110), tag='logo_musicplayer', text='M U S I C   P L A Y E R', size=21,
+                      color=(95, 59, 35))
+        dpg.bind_item_font(item='logo_musicplayer', font='font4')
 
-    make_image('assets/raccoon/logo_raccoon_circle.png', 82, 35, 'viewport_front')
-    dpg.draw_rectangle(tag='logo_text_filter', parent="viewport_front", color=(0, 0, 0, 0), fill=(0, 0, 0, 0),
-                       pmin=(50, 30), pmax=(510, 150))
-    dpg.draw_rectangle(tag='leaves_button_filter', parent="viewport_front", color=(0, 0, 0, 0), fill=(222, 0, 0, 0),
-                       pmin=(540, 0), pmax=(630, 70))
+        make_image('assets/raccoon/logo_raccoon_circle.png', 82, 35, 'viewport_front')
+        dpg.draw_rectangle(tag='logo_text_filter', color=(0, 0, 0, 0), fill=(0, 0, 0, 0),
+                           pmin=(50, 30), pmax=(510, 150))
+        dpg.draw_rectangle(tag='leaves_button_filter', color=(0, 0, 0, 0), fill=(222, 0, 0, 0),
+                           pmin=(540, 0), pmax=(630, 70))
 
 
 def load_textures(filepath, asset_name, image_type, number_of_assets):
