@@ -248,7 +248,6 @@ def gui(mp, music_folder, music_files, app_state, fill):
 
         with dpg.handler_registry():
             dpg.add_mouse_drag_handler(button=0, threshold=0.0, callback=drag_viewport)
-            # dpg.add_mouse_drag_handler(callback=drag_viewport)
 
     with dpg.window(label="main window", **config.main_window) as main_window:
         dpg.bind_item_theme(main_window, 'app_theme')

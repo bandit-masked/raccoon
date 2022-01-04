@@ -119,6 +119,7 @@ class Animation:
         self.image_width = image_width
         self.image_height = image_height
         self.layer = layer
+        # use uv_min and uv_max for left or right orientation
         self.sprite = dpg.draw_image(texture_tag=self.textures[0], pmin=(self.x, self.y),
                                      pmax=(image_width + self.x, image_height + self.y), parent=self.layer)
 
