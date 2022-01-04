@@ -244,7 +244,7 @@ def gui(mp, music_folder, music_files, app_state, fill):
         dpg.bind_item_theme(logo_window, 'app_theme')
         leaf = graphics.load_texture('assets/scene/leaves_button.png')
         dpg.add_image_button(texture_tag=leaf, tag='close_button', pos=(543, 0), user_data=app_state,
-                             callback=app_state_close, frame_padding=0)  # user_data=user_data_list,
+                             callback=app_state_close, frame_padding=0)
 
         with dpg.handler_registry():
             dpg.add_mouse_drag_handler(button=0, threshold=0.0, callback=drag_viewport)
