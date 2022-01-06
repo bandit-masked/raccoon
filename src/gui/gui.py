@@ -234,8 +234,7 @@ def drag_viewport(sender, app_data, user_data):
         dpg.set_viewport_pos([new_x_position, new_y_position])
 
 
-def gui(mp, music_folder, music_files, app_state, fill):
-    # sourcery skip: extract-method
+def gui(mp, music_folder, music_files, app_state):
     dpg.create_context()
     style.load_themes()
     style.load_fonts()

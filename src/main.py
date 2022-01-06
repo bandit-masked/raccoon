@@ -12,7 +12,7 @@ def setup():
     app_state = gui.AppState()
     logo_fader = gui.Fader()
     leaves_button_fader = gui.Fader()
-    main_window, logo_window = gui.gui(mp, music_folder, music_files, app_state, logo_fader)
+    main_window, logo_window = gui.gui(mp, music_folder, music_files, app_state)
     gui.setup_graphics()
     raccoons = gui.create_raccoons()
     fire = gui.create_fire()
