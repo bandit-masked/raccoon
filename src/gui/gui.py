@@ -288,6 +288,7 @@ def gui(mp, music_folder, music_files, app_state, fill):
     dpg.set_viewport_min_height(0)
     dpg.set_viewport_min_width(0)
     dpg.setup_dearpygui()
-    dpg.show_viewport()
-
     return main_window, logo_window
+
+def show_viewport():
+    dpg.show_viewport()
