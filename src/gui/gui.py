@@ -233,6 +233,8 @@ def drag_viewport(sender, app_data, user_data):
         new_y_position = max(new_y_position, 0) # prevent the viewport to go off the top of the screen
         dpg.set_viewport_pos([new_x_position, new_y_position])
 
+def move_viewport_to_desktop():
+    dpg.set_viewport_pos([100, 10])
 
 def gui(mp, music_folder, music_files, app_state):
     dpg.create_context()
@@ -283,11 +285,10 @@ def gui(mp, music_folder, music_files, app_state):
         dpg.bind_item_theme('song_name', 'song_playing_theme')
         dpg.bind_item_font(item='song_name', font='font2')
 
-    dpg.create_viewport(title='Music player', height=500, width=622, x_pos=100, y_pos=100, decorated=False)
+    dpg.create_viewport(title='Music player', height=500, width=622, x_pos=-10000, y_pos=-10000, decorated=False)
     dpg.set_viewport_min_height(0)
     dpg.set_viewport_min_width(0)
-    dpg.setup_dearpygui()
-    return main_window, logo_window
-
-def show_viewport():
     dpg.show_viewport()
+    dpg.setup_dearpygui()
+    dpg.set_frame_callback(frame=3, callback=move_viewport_to_desktop)
+    return main_window, logo_window

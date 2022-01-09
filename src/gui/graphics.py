@@ -192,7 +192,7 @@ def load_logo():
         dpg.draw_rectangle(tag='leaves_button_filter', color=(0, 0, 0, 0), fill=(222, 0, 0, 0),
                            pmin=(540, 0), pmax=(630, 70))
 
-    make_image('assets/raccoon/raccoon_logo_face.png', 82, 35, 'viewport_front')
+        make_image('assets/raccoon/raccoon_logo_face.png', 82, 35, 'layer_01')
 
 
 def load_textures(filepath, asset_name, image_type, number_of_assets):

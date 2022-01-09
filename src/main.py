@@ -19,7 +19,6 @@ def setup():
     smoke1 = gui.create_smoke(303)
     smoke2 = gui.create_smoke(328)
     particles = gui.create_particle()
-    gui.show_viewport()
     return raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particles
 
 
