@@ -19,6 +19,7 @@ class Player:
         # faster when actually calling it again when playing the first song.
         self.playback_device = miniaudio.PlaybackDevice()
 
+
     def song_change(self, sender, listbox_song, music_folder):
         self.listbox_song = listbox_song
         self.listbox_song_filename = music_folder + '/' + self.listbox_song
