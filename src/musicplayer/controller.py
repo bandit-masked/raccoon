@@ -31,3 +31,6 @@ def mp_song_change(sender, listbox_song, user_data):
 def mp_state(mp):
     return mp.playback_status()
 
+def mp_close(mp):
+    mp.close_app
+

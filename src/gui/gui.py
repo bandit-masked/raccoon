@@ -216,7 +216,6 @@ def create_particle():
         particles.append(
             graphics.Particle(x_pos, y_pos, horizontal_speed, starting_frame, 13, 40, particle_textures, size, size,
                               layer))
-
     return particles
 
 
@@ -252,7 +251,7 @@ def gui(mp, music_folder, music_files, app_state):
 
     with dpg.window(label="main window", **config.main_window) as main_window:
         dpg.bind_item_theme(main_window, 'app_theme')
-        dpg.set_exit_callback(mp.close_app)
+        dpg.set_exit_callback(callback=lambda mp:controller.mp_close )
 
         if len(music_files) > 0:
             controller.mp_song_change('sender', music_files[0], [mp, music_folder])
