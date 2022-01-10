@@ -251,6 +251,8 @@ def gui(mp, music_folder, music_files, app_state):
 
     with dpg.window(label="main window", **config.main_window) as main_window:
         dpg.bind_item_theme(main_window, 'app_theme')
+        # use lambda in callback to pass music player object to mp_close function
+        # because set_exit_callback does not support user_data
         dpg.set_exit_callback(callback=lambda mp:controller.mp_close )
 
         if len(music_files) > 0:
