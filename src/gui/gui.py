@@ -255,12 +255,11 @@ def gui(mp, music_folder, music_files, app_state):
         dpg.set_exit_callback(mp.close_app)
 
         if len(music_files) > 0:
-            mp.song_change('sender_dummy', music_files[0], music_folder)
+            controller.mp_song_change('sender', music_files[0], [mp, music_folder])
             dpg.add_listbox(tag='listbox_files', items=music_files,
-                            callback=mp.song_change, user_data=music_folder, width=565, num_items=6)
+                            callback=controller.mp_song_change, user_data=[mp, music_folder], width=565, num_items=6)
         else:
-            dpg.add_listbox(tag='listbox_files', items=['No music files'],
-                            callback=mp.song_change, user_data=music_folder, width=565, num_items=6)
+            dpg.add_listbox(tag='listbox_files', items=['No music files'], width=565, num_items=6)
         dpg.bind_item_theme('listbox_files', 'listbox_theme')
         dpg.add_spacer(height=30)
 

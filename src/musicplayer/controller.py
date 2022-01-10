@@ -23,6 +23,10 @@ def mp_interface(sender, data, user_data):
         song_name = 'File cannot be played'
         dpg.configure_item(item='song_name', label=song_name)
 
+def mp_song_change(sender, listbox_song, user_data):
+    mp = user_data[0]
+    music_folder = user_data[1]
+    mp.song_change('sender', listbox_song, music_folder)
 
 def mp_state(mp):
     return mp.playback_status()
