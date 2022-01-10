@@ -52,7 +52,7 @@ class Player:
 
         elif self.player_state == 'pause':
             self.go_stop = False
-            self.go_load = False
+            self.go_load = not self.same_song_selected
             self.go_play = True
 
         elif self.player_state in ['stop', 'play']:
