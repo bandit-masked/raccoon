@@ -109,8 +109,9 @@ class Raccoon:
 
 
 class Animation:
+    # animation class is used by fire and smoke animations
 
-    def __init__(self, x, y, num_frames, textures, image_width, image_height, layer):
+    def __init__(self, x, y, num_frames, textures, image_width, image_height, max_variation, layer):
         self.x = x
         self.y = y
         self.frame = 0
@@ -118,6 +119,11 @@ class Animation:
         self.textures = textures
         self.image_width = image_width
         self.image_height = image_height
+        self.max_variation = max_variation
+        self.current_variation = 0
+        self.increase_size = True
+        self.counter = 0
+        self.rrr_list = []
         self.layer = layer
         # use uv_min and uv_max for left or right orientation
         self.sprite = dpg.draw_image(texture_tag=self.textures[0], pmin=(self.x, self.y),
@@ -128,8 +134,18 @@ class Animation:
             self.frame += 1
         else:
             self.frame = 0
-        dpg.configure_item(self.sprite, texture_tag=self.textures[self.frame], pmin=(self.x, self.y),
-                           pmax=(self.image_width + self.x, self.image_height + self.y))
+        if self.increase_size:
+            self.current_variation += 0.3
+        else:
+            self.current_variation -= 0.3
+
+        if self.current_variation > self.max_variation:
+            self.increase_size = False
+        elif self.current_variation < 0:
+            self.increase_size = True
+
+        dpg.configure_item(self.sprite, texture_tag=self.textures[self.frame], pmin=(self.x, self.y + self.current_variation),
+                           pmax=(self.image_width + self.x, (self.image_height + self.y)))
 
 
 class Particle:
