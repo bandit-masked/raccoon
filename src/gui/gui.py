@@ -194,7 +194,7 @@ def create_raccoons():
 
 def create_fire():
     flames = graphics.load_textures('assets/flame', 'flame', 'png', 8)
-    return graphics.Animation(280, 540, 8, flames, 100, 100, 13, 'layer_07')
+    return graphics.Animation(280, 540, 8, flames, 100, 100, 10, 'layer_07')
 
 
 def create_smoke(x_pos):
