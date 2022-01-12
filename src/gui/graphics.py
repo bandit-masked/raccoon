@@ -109,7 +109,6 @@ class Raccoon:
 
 
 class Animation:
-    # animation class is used by fire and smoke animations
 
     def __init__(self, x, y, num_frames, textures, image_width, image_height, max_variation, layer):
         self.x = x
@@ -123,7 +122,6 @@ class Animation:
         self.current_variation = 0
         self.decrease_size = True
         self.layer = layer
-        # use uv_min and uv_max for left or right orientation
         self.sprite = dpg.draw_image(texture_tag=self.textures[0], pmin=(self.x, self.y),
                                      pmax=(image_width + self.x, image_height + self.y), parent=self.layer)
 
