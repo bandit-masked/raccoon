@@ -15,6 +15,7 @@ def create_drawing_layers():
     dpg.add_viewport_drawlist(tag='layer_08', front=True)
     dpg.add_viewport_drawlist(tag='layer_09', front=True)
     dpg.add_viewport_drawlist(tag='layer_10', front=True)
+    dpg.add_viewport_drawlist(tag='layer_11', front=True)
 
 
 def load_texture(file):
@@ -205,7 +206,6 @@ def load_logo():
                            pmin=(50, 30), pmax=(510, 150))
         dpg.draw_rectangle(tag='leaves_button_filter', color=(0, 0, 0, 0), fill=(222, 0, 0, 0),
                            pmin=(540, 0), pmax=(630, 70))
-
         make_image('assets/raccoon/raccoon_logo_face.png', 82, 35, 'layer_01')
 
 

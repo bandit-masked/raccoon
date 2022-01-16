@@ -191,6 +191,10 @@ def create_raccoons():
 
     return raccoons
 
+def create_glow():
+    glow = graphics.load_textures('assets/glow', 'glow', 'png', 3)
+    return graphics.Animation(192, 525, 3, glow, 250, 120, 10, 'layer_06')
+
 
 def create_fire():
     flames = graphics.load_textures('assets/flame', 'flame', 'png', 8)
