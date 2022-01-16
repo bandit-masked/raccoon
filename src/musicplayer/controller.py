@@ -1,8 +1,10 @@
 import dearpygui.dearpygui as dpg
 import musicplayer.musicplayer as musicplayer
 
+
 def setup(first_song):
     return musicplayer.Player(first_song)
+
 
 def mp_interface(sender, data, user_data):
     """mp_interface provides an interface between the GUI callbacks
@@ -26,14 +28,16 @@ def mp_interface(sender, data, user_data):
         song_name = 'File cannot be played'
         dpg.configure_item(item='song_name', label=song_name)
 
+
 def mp_song_change(sender, listbox_song, user_data):
     mp = user_data[0]
     music_folder = user_data[1]
     mp.song_change('sender', listbox_song, music_folder)
 
+
 def mp_state(mp):
     return mp.playback_status()
 
+
 def mp_close(mp):
     mp.close_app
-

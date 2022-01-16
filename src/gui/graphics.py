@@ -143,7 +143,8 @@ class Animation:
             elif self.current_variation < 0:
                 self.decrease_size = True
 
-        dpg.configure_item(self.sprite, texture_tag=self.textures[self.frame], pmin=(self.x, self.y + self.current_variation),
+        dpg.configure_item(self.sprite, texture_tag=self.textures[self.frame],
+                           pmin=(self.x, self.y + self.current_variation),
                            pmax=(self.image_width + self.x, (self.image_height + self.y)))
 
 
