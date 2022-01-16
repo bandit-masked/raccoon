@@ -1,5 +1,4 @@
 import dearpygui.dearpygui as dpg
-import musicplayer.musicplayer as musicplayer
 import gui.gui as gui
 import gui.files as files
 import musicplayer.controller as controller
