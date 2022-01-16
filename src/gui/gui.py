@@ -286,7 +286,7 @@ def gui(mp, music_folder, music_files, app_state):
         dpg.add_spacer(height=14)
 
         # display song name
-        dpg.add_button(tag='song_name', label='''Let's play some music!''', width=565)
+        dpg.add_button(tag='song_name', label='', width=565)
         dpg.bind_item_theme('song_name', 'song_playing_theme')
         dpg.bind_item_font(item='song_name', font='font2')
 
