@@ -187,7 +187,7 @@ class Particle:
         self.x = self.x + self.horizontal_speed + math.sin(self.step) / 100
         self.y_base = self.y_base + (3.1 / self.vertical_trend)
         # vertical_trend reversely impacts the vertical speed. A smaller number means faster downward speed.
-        self.vertical_trend += 0.09
+        self.vertical_trend += 0.085
         self.y = self.y_base + math.sin(self.x / 20 + self.sin_variation) * 3
         dpg.configure_item(self.sprite, texture_tag=self.textures[self.frame], pmin=(self.x, self.y),
                            pmax=(self.image_width + self.x, self.image_height + self.y))
