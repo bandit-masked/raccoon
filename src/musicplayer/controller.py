@@ -1,5 +1,8 @@
 import dearpygui.dearpygui as dpg
+import musicplayer.musicplayer as musicplayer
 
+def setup(first_song):
+    return musicplayer.Player(first_song)
 
 def mp_interface(sender, data, user_data):
     """mp_interface provides an interface between the GUI callbacks

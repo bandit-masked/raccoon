@@ -8,7 +8,7 @@ import musicplayer.controller as controller
 def setup():
     music_folder = 'music'
     first_song, music_files = files.get_first_song(music_folder)
-    mp = musicplayer.Player(first_song)
+    mp = controller.setup(first_song)
     app_state = gui.AppState()
     logo_fader = gui.Fader()
     leaves_button_fader = gui.Fader()
@@ -16,13 +16,14 @@ def setup():
     gui.setup_graphics()
     raccoons = gui.create_raccoons()
     fire = gui.create_fire()
+    glow = gui.create_glow()
     smoke1 = gui.create_smoke(303)
     smoke2 = gui.create_smoke(328)
     particles = gui.create_particle()
-    return raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particles
+    return raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, glow, smoke1, smoke2, particles
 
 
-def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particles):
+def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, glow, smoke1, smoke2, particles):
     raccoon_timer = gui.Timer(0.05)
     fire_timer = gui.Timer(0.085)
     smoke_timer1 = gui.TimerInterval(6.5, 0.11, 10)  # run 10 frames at 0.10 seconds interval after 8 seconds,
@@ -52,6 +53,7 @@ def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, 
 
         if fire_timer.update():
             fire.update()
+            glow.update()
 
         if smoke_timer1.update():
             smoke1.update()
@@ -114,8 +116,8 @@ def run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, 
 
 
 def main():
-    raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particle = setup()
-    run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, smoke1, smoke2, particle)
+    raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, glow, smoke1, smoke2, particle = setup()
+    run(raccoons, mp, app_state, logo_fader, leaves_button_fader, fire, glow, smoke1, smoke2, particle)
 
     # destroy_context should not be placed inside the render loop to avoid an error
     dpg.destroy_context()
