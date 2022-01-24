@@ -120,6 +120,8 @@ class Animation:
         self.image_width = image_width
         self.image_height = image_height
         self.max_variation = max_variation
+        self.variation_step_speed = 5
+        self.variation_current_step = 0
         self.current_variation = 0
         self.decrease_size = True
         self.layer = layer
@@ -133,19 +135,26 @@ class Animation:
             self.frame = 0
 
         if self.max_variation != 0:
-            if self.decrease_size:
-                self.current_variation += 0.3
-            else:
-                self.current_variation -= 0.3
 
-            if self.current_variation > self.max_variation:
-                self.decrease_size = False
-            elif self.current_variation < 0:
-                self.decrease_size = True
+            if self.variation_current_step >= self.variation_step_speed:
+
+                self.variation_current_step = 0
+
+                if self.decrease_size:
+                    self.current_variation += 1  # steps have to be integers to avoid visual artefacts
+                else:
+                    self.current_variation -= 1
+
+                if self.current_variation > self.max_variation:
+                    self.decrease_size = False
+                elif self.current_variation < 0:
+                    self.decrease_size = True
+            else:
+                self.variation_current_step += 1
 
         dpg.configure_item(self.sprite, texture_tag=self.textures[self.frame],
-                           pmin=(self.x, self.y + self.current_variation),
-                           pmax=(self.image_width + self.x, (self.image_height + self.y)))
+                           pmin=(self.x, self.y - self.current_variation),
+                           pmax=(self.image_width + self.x, self.image_height + self.y))
 
 
 class Particle:
