@@ -28,7 +28,7 @@ https://user-images.githubusercontent.com/96011344/152874435-dde7e8be-59a4-4b40-
 Raccoon Music Player will list and play all MP3, WAV and FLAC music files that are stored in the music folder of the project. Copy your music files to the music folder, start the app and play your favourite tunes. 💕🎶
 
 # Supported Operating Systems
-Raccoon Music Player has been developed and tested on Windows 10. The libraries that are used for this app support Windows 10, Linux and MacOS. Therefore, the app should be able to run on all three platforms, but it has not been tested on Linux and MacOS. Dear PyGui currently does not support Apple's M1 platform, but it is expected that this will be supported as of Q1 2022.
+Raccoon Music Player has been developed and tested on Windows 10. The libraries that are used for this app support Windows 10, Linux and MacOS. Therefore, the app should be able to run on all three platforms, but it has not been tested on Linux and MacOS.
 
 # Licenses
 The [raccoon](https://null-painter-error.itch.io/cute-raccoon-2d-game-sprite-and-animations) character is available under a CC BY license. Licenses of assets, fonts and music are a listed in the appropriate project folders. The software is available under the MIT license.
