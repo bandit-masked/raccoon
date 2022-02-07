@@ -12,13 +12,8 @@ The following videos demonstrate the use of Raccoon Music Player. Since the vide
 
 <br/>
 
-https://user-images.githubusercontent.com/96011344/149972527-02c8501c-270d-4527-a5e0-6fbace274980.mp4
 
 
-https://user-images.githubusercontent.com/96011344/149972580-33c7bc76-4461-4d79-acb7-5fa54222aaf0.mp4
-
-
-https://user-images.githubusercontent.com/96011344/149972633-c840f971-f2c6-418f-a803-133ddffb4cd4.mp4
 
 
 # Usage
